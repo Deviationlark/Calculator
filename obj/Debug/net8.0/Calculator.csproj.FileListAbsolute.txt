@@ -12,3 +12,12 @@ G:\msvprojec\Calculator\obj\Debug\net8.0\refint\Calculator.dll
 G:\msvprojec\Calculator\obj\Debug\net8.0\Calculator.pdb
 G:\msvprojec\Calculator\obj\Debug\net8.0\Calculator.genruntimeconfig.cache
 G:\msvprojec\Calculator\obj\Debug\net8.0\ref\Calculator.dll
+G:\msvprojec\Calculator\obj\Debug\net8.0\Calculator.csproj.AssemblyReference.cache
+G:\msvprojec\Calculator\obj\Debug\net8.0\Calculator.sourcelink.json
+G:\msvprojec\Calculator\bin\Debug\net8.0\CalculatorLibrary.deps.json
+G:\msvprojec\Calculator\bin\Debug\net8.0\CalculatorLibrary.runtimeconfig.json
+G:\msvprojec\Calculator\bin\Debug\net8.0\CalculatorLibrary.exe
+G:\msvprojec\Calculator\bin\Debug\net8.0\CalculatorLibrary.dll
+G:\msvprojec\Calculator\bin\Debug\net8.0\CalculatorLibrary.pdb
+G:\msvprojec\Calculator\obj\Debug\net8.0\Calculator.csproj.CopyComplete
+G:\msvprojec\Calculator\bin\Debug\net8.0\Newtonsoft.Json.dll
