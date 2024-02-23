@@ -5,6 +5,10 @@ namespace CalculatorLibrary
 {
     public class Calculator
     {
+        // if i delete this it gives an error on its absence
+        // ##########################
+        static void Main() { }
+        // ##########################
         JsonWriter writer; 
         List<string> calculations = new List<string>();
         List<double> results = new List<double>();
