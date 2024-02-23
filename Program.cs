@@ -1,29 +1,34 @@
 ﻿using CalculatorLibrary;
 
 bool endApp = false;
+string? readlineResult;
+Calculator calculator = new Calculator();
+double cleanNum1 = 0;
+int count = 0;
 // Display title as the C# console calculator app.
+Console.Clear();
 Console.WriteLine("Console Calculator in C#\r");
 Console.WriteLine("------------------------\n");
-Calculator calculator = new Calculator();
 
 while (!endApp)
 {
     // Declare variables and set to empty.
-    string numInput1 = "";
-    string numInput2 = "";
+    string? numInput1 = "";
+    string? numInput2 = "";
     double result = 0;
 
-    // Ask the user to type the first number.
-    Console.Write("Type a number, and then press Enter: ");
-    numInput1 = Console.ReadLine();
-
-    double cleanNum1 = 0;
-    while (!double.TryParse(numInput1, out cleanNum1))
-    {
-        Console.Write("This is not valid input. Please enter an integer value: ");
+    if (cleanNum1 == 0)
+    {    // Ask the user to type the first number.
+        Console.Write("Type a number, and then press Enter: ");
         numInput1 = Console.ReadLine();
+        while (!double.TryParse(numInput1, out cleanNum1))
+        {
+            Console.Write("This is not valid input. Please enter an integer value: ");
+            numInput1 = Console.ReadLine();
+        }
     }
-
+    Console.Clear();
+    Console.WriteLine(cleanNum1);
     // Ask the user to type the second number.
     Console.Write("Type another number, and then press Enter: ");
     numInput2 = Console.ReadLine();
@@ -34,16 +39,17 @@ while (!endApp)
         Console.Write("This is not valid input. Please enter an integer value: ");
         numInput2 = Console.ReadLine();
     }
-
+    Console.Clear();
+    Console.WriteLine($"{cleanNum1} {cleanNum2}");
     // Ask the user to choose an operator.
     Console.WriteLine("Choose an operator from the following list:");
     Console.WriteLine("\ta - Add");
     Console.WriteLine("\ts - Subtract");
     Console.WriteLine("\tm - Multiply");
     Console.WriteLine("\td - Divide");
-    Console.Write("Your option? ");
+    Console.Write("Your option: ");
 
-    string op = Console.ReadLine();
+    string? op = Console.ReadLine();
 
     try
     {
@@ -52,19 +58,56 @@ while (!endApp)
         {
             Console.WriteLine("This operation will result in a mathematical error.\n");
         }
-        else Console.WriteLine("Your result: {0:0.##}\n", result);
+        else
+        {
+            Console.Clear();
+            op = Operator(op);
+            Console.WriteLine($"{cleanNum1} {op} {cleanNum2} = ");
+            Console.WriteLine("Your result: {0:0.##}\n", result);
+            count++;
+        }
     }
     catch (Exception e)
     {
         Console.WriteLine("Oh no! An exception occurred trying to do the math.\n - Details: " + e.Message);
     }
-
+    
     Console.WriteLine("------------------------\n");
-
+    Console.WriteLine($"Calculations done:{count}");
     // Wait for the user to respond before closing.
-    Console.Write("Press 'n' and Enter to close the app, or press any other key and Enter to continue: ");
-    if (Console.ReadLine() == "n") endApp = true;
+    Console.WriteLine("Press 'n' and Enter to close the app");
+    Console.WriteLine("Press 'h' and Enter to view history");
+    Console.WriteLine("Press any other key and/or Enter to do another calculation");
+    readlineResult = Console.ReadLine();
+    if (readlineResult == "n") endApp = true;
+    else if (readlineResult == "h")
+    {
+        cleanNum1 = calculator.ShowHistory();
+    }
+    else
+        cleanNum1 = 0;
 
     Console.WriteLine("\n"); // Friendly linespacing.
+
 }
 calculator.Finish();
+string Operator(string op)
+{
+    switch (op)
+    {
+        case "a":
+            op = "+";
+            break;
+        case "s":
+            op = "-";
+            break;
+        case "m":
+            op = "*";
+            break;
+        case "d":
+            op = "/";
+            break;
+    }
+    return op;
+}
+

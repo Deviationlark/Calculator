@@ -1,13 +1,14 @@
-﻿using System.Diagnostics;
+﻿using System.Net;
 using Newtonsoft.Json;
 
 namespace CalculatorLibrary
 {
     public class Calculator
     {
-        static void Main() { }
-        JsonWriter writer;
-
+        JsonWriter writer; 
+        List<string> calculations = new List<string>();
+        List<double> results = new List<double>();
+        int count = 0;
         public Calculator()
         {
             StreamWriter logFile = File.CreateText("calculatorlog.json");
@@ -33,15 +34,18 @@ namespace CalculatorLibrary
             {
                 case "a":
                     result = num1 + num2;
+                    History(num1, num2, result, op);
                     writer.WriteValue("Add");
                     break;
                 case "s":
                     result = num1 - num2;
                     writer.WriteValue("Subtract");
+                    History(num1, num2, result, op);
                     break;
                 case "m":
                     result = num1 * num2;
                     writer.WriteValue("Multiply");
+                    History(num1, num2, result, op);
                     break;
                 case "d":
                     // Ask the user to enter a non-zero divisor.
@@ -50,9 +54,12 @@ namespace CalculatorLibrary
                         result = num1 / num2;
                     }
                     writer.WriteValue("Divide");
+                    History(num1, num2, result, op);
                     break;
                 // Return text for an incorrect option entry.
                 default:
+                    Console.WriteLine("Thats not an operation.");
+                    Console.ReadLine();
                     break;
             }
             writer.WritePropertyName("Result");
@@ -66,6 +73,40 @@ namespace CalculatorLibrary
             writer.WriteEndArray();
             writer.WriteEndObject();
             writer.Close();
+        }
+
+        public void History(double num1 = 0, double num2 = 0, double result = 0, string op = "")
+        {
+            calculations.Add($"{count + 1}. {num1} {op} {num2} = {result}");
+            results.Add(result);
+            count++;
+        }
+
+        public double ShowHistory()
+        {
+            Console.Clear();
+            double num1 = 0;
+            string? result;
+            foreach(string calculation in calculations)
+            {
+                Console.WriteLine(calculation);
+            }
+            Console.WriteLine("u. Use previous result");
+            Console.WriteLine("d. Delete history");
+            result = Console.ReadLine();
+            if (result == "u")
+            {
+                Console.WriteLine("Type the number of the result you would like to use: ");
+                result = Console.ReadLine();
+                num1 = Convert.ToDouble(results[(Convert.ToInt32(result) - 1)]);
+            } 
+            else if (result == "d")
+            {
+                calculations.Clear();
+                results.Clear();
+                count = 0;
+            }
+            return num1; 
         }
     }
 }
