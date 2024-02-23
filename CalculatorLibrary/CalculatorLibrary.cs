@@ -9,7 +9,7 @@ namespace CalculatorLibrary
         // ##########################
         static void Main() { }
         // ##########################
-        JsonWriter writer; 
+        JsonWriter writer;
         List<string> calculations = new List<string>();
         List<double> results = new List<double>();
         int count = 0;
@@ -91,7 +91,7 @@ namespace CalculatorLibrary
             Console.Clear();
             double num1 = 0;
             string? result;
-            foreach(string calculation in calculations)
+            foreach (string calculation in calculations)
             {
                 Console.WriteLine(calculation);
             }
@@ -103,14 +103,34 @@ namespace CalculatorLibrary
                 Console.WriteLine("Type the number of the result you would like to use: ");
                 result = Console.ReadLine();
                 num1 = Convert.ToDouble(results[(Convert.ToInt32(result) - 1)]);
-            } 
+            }
             else if (result == "d")
             {
                 calculations.Clear();
                 results.Clear();
                 count = 0;
             }
-            return num1; 
+            return num1;
+        }
+        
+        public string Operator(string op)
+        {
+            switch (op)
+            {
+                case "a":
+                    op = "+";
+                    break;
+                case "s":
+                    op = "-";
+                    break;
+                case "m":
+                    op = "*";
+                    break;
+                case "d":
+                    op = "/";
+                    break;
+            }
+            return op;
         }
     }
 }

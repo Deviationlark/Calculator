@@ -5,11 +5,11 @@ string? readlineResult;
 Calculator calculator = new Calculator();
 double cleanNum1 = 0;
 int count = 0;
+
 // Display title as the C# console calculator app.
 Console.Clear();
 Console.WriteLine("Console Calculator in C#\r");
 Console.WriteLine("------------------------\n");
-
 while (!endApp)
 {
     // Declare variables and set to empty.
@@ -48,7 +48,6 @@ while (!endApp)
     Console.WriteLine("\tm - Multiply");
     Console.WriteLine("\td - Divide");
     Console.Write("Your option: ");
-
     string? op = Console.ReadLine();
 
     try
@@ -61,7 +60,7 @@ while (!endApp)
         else
         {
             Console.Clear();
-            op = Operator(op);
+            op = calculator.Operator(op);
             Console.WriteLine($"{cleanNum1} {op} {cleanNum2} = ");
             Console.WriteLine("Your result: {0:0.##}\n", result);
             count++;
@@ -88,26 +87,6 @@ while (!endApp)
         cleanNum1 = 0;
 
     Console.WriteLine("\n"); // Friendly linespacing.
-
 }
 calculator.Finish();
-string Operator(string op)
-{
-    switch (op)
-    {
-        case "a":
-            op = "+";
-            break;
-        case "s":
-            op = "-";
-            break;
-        case "m":
-            op = "*";
-            break;
-        case "d":
-            op = "/";
-            break;
-    }
-    return op;
-}
 
