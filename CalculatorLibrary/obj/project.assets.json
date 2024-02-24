@@ -60,11 +60,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "g:\\msvprojec\\Calculator\\CalculatorLibrary\\CalculatorLibrary.csproj",
+      "projectUniqueName": "G:\\msvprojec\\Calculator\\CalculatorLibrary\\CalculatorLibrary.csproj",
       "projectName": "CalculatorLibrary",
-      "projectPath": "g:\\msvprojec\\Calculator\\CalculatorLibrary\\CalculatorLibrary.csproj",
+      "projectPath": "G:\\msvprojec\\Calculator\\CalculatorLibrary\\CalculatorLibrary.csproj",
       "packagesPath": "C:\\Users\\petar\\.nuget\\packages\\",
-      "outputPath": "g:\\msvprojec\\Calculator\\CalculatorLibrary\\obj\\",
+      "outputPath": "G:\\msvprojec\\Calculator\\CalculatorLibrary\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\petar\\AppData\\Roaming\\NuGet\\NuGet.Config"

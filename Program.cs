@@ -39,17 +39,20 @@ while (!endApp)
         Console.Write("This is not valid input. Please enter an integer value: ");
         numInput2 = Console.ReadLine();
     }
-    Console.Clear();
-    Console.WriteLine($"{cleanNum1} {cleanNum2}");
     // Ask the user to choose an operator.
-    Console.WriteLine("Choose an operator from the following list:");
-    Console.WriteLine("\ta - Add");
-    Console.WriteLine("\ts - Subtract");
-    Console.WriteLine("\tm - Multiply");
-    Console.WriteLine("\td - Divide");
-    Console.Write("Your option: ");
-    string? op = Console.ReadLine();
-
+    string? op = "";
+    while (string.IsNullOrEmpty(op))
+    {
+        Console.Clear();
+        Console.WriteLine($"{cleanNum1} {cleanNum2}");
+        Console.WriteLine("Choose an operator from the following list:");
+        Console.WriteLine("\ta - Add");
+        Console.WriteLine("\ts - Subtract");
+        Console.WriteLine("\tm - Multiply");
+        Console.WriteLine("\td - Divide");
+        Console.Write("Your option: ");
+        op = Console.ReadLine();
+    }
     try
     {
         result = calculator.DoOperation(cleanNum1, cleanNum2, op);
@@ -69,8 +72,9 @@ while (!endApp)
     catch (Exception e)
     {
         Console.WriteLine("Oh no! An exception occurred trying to do the math.\n - Details: " + e.Message);
+        calculator.Finish();
     }
-    
+
     Console.WriteLine("------------------------\n");
     Console.WriteLine($"Calculations done:{count}");
     // Wait for the user to respond before closing.
@@ -89,4 +93,3 @@ while (!endApp)
     Console.WriteLine("\n"); // Friendly linespacing.
 }
 calculator.Finish();
-

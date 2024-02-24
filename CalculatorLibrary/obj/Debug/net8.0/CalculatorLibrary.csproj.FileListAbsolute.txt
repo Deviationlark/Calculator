@@ -1,6 +1,5 @@
+G:\msvprojec\Calculator\CalculatorLibrary\obj\Debug\net8.0\CalculatorLibrary.csproj.AssemblyReference.cache
 G:\msvprojec\Calculator\CalculatorLibrary\obj\Debug\net8.0\CalculatorLibrary.GeneratedMSBuildEditorConfig.editorconfig
-G:\msvprojec\Calculator\CalculatorLibrary\obj\Debug\net8.0\CalculatorLibrary.AssemblyInfoInputs.cache
-G:\msvprojec\Calculator\CalculatorLibrary\obj\Debug\net8.0\CalculatorLibrary.AssemblyInfo.cs
 G:\msvprojec\Calculator\CalculatorLibrary\obj\Debug\net8.0\CalculatorLibrary.csproj.CoreCompileInputs.cache
 G:\msvprojec\Calculator\CalculatorLibrary\obj\Debug\net8.0\CalculatorLibrary.sourcelink.json
 G:\msvprojec\Calculator\CalculatorLibrary\bin\Debug\net8.0\CalculatorLibrary.exe
@@ -8,11 +7,10 @@ G:\msvprojec\Calculator\CalculatorLibrary\bin\Debug\net8.0\CalculatorLibrary.dep
 G:\msvprojec\Calculator\CalculatorLibrary\bin\Debug\net8.0\CalculatorLibrary.runtimeconfig.json
 G:\msvprojec\Calculator\CalculatorLibrary\bin\Debug\net8.0\CalculatorLibrary.dll
 G:\msvprojec\Calculator\CalculatorLibrary\bin\Debug\net8.0\CalculatorLibrary.pdb
+G:\msvprojec\Calculator\CalculatorLibrary\bin\Debug\net8.0\Newtonsoft.Json.dll
+G:\msvprojec\Calculator\CalculatorLibrary\obj\Debug\net8.0\CalculatorLibrary.csproj.CopyComplete
 G:\msvprojec\Calculator\CalculatorLibrary\obj\Debug\net8.0\CalculatorLibrary.dll
 G:\msvprojec\Calculator\CalculatorLibrary\obj\Debug\net8.0\refint\CalculatorLibrary.dll
 G:\msvprojec\Calculator\CalculatorLibrary\obj\Debug\net8.0\CalculatorLibrary.pdb
 G:\msvprojec\Calculator\CalculatorLibrary\obj\Debug\net8.0\CalculatorLibrary.genruntimeconfig.cache
 G:\msvprojec\Calculator\CalculatorLibrary\obj\Debug\net8.0\ref\CalculatorLibrary.dll
-G:\msvprojec\Calculator\CalculatorLibrary\bin\Debug\net8.0\Newtonsoft.Json.dll
-G:\msvprojec\Calculator\CalculatorLibrary\obj\Debug\net8.0\CalculatorLibrary.csproj.AssemblyReference.cache
-G:\msvprojec\Calculator\CalculatorLibrary\obj\Debug\net8.0\CalculatorLibrary.csproj.CopyComplete

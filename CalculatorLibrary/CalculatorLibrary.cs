@@ -23,6 +23,7 @@ namespace CalculatorLibrary
             writer.WritePropertyName("Operations");
             writer.WriteStartArray();
         }
+
         public double DoOperation(double num1, double num2, string op)
         {
             double result = double.NaN; // Default value is "not-a-number" if an operation, such as division, could result in an error.
@@ -63,6 +64,7 @@ namespace CalculatorLibrary
                 // Return text for an incorrect option entry.
                 default:
                     Console.WriteLine("Thats not an operation.");
+                    writer.WriteValue("Invalid operation");
                     Console.ReadLine();
                     break;
             }
@@ -72,6 +74,7 @@ namespace CalculatorLibrary
 
             return result;
         }
+
         public void Finish()
         {
             writer.WriteEndArray();
@@ -81,6 +84,7 @@ namespace CalculatorLibrary
 
         public void History(double num1 = 0, double num2 = 0, double result = 0, string op = "")
         {
+            op = Operator(op);
             calculations.Add($"{count + 1}. {num1} {op} {num2} = {result}");
             results.Add(result);
             count++;
@@ -90,19 +94,30 @@ namespace CalculatorLibrary
         {
             Console.Clear();
             double num1 = 0;
-            string? result;
+            string? result = "";
             foreach (string calculation in calculations)
             {
                 Console.WriteLine(calculation);
             }
-            Console.WriteLine("u. Use previous result");
-            Console.WriteLine("d. Delete history");
-            result = Console.ReadLine();
+            while (string.IsNullOrEmpty(result))
+            {
+
+                Console.WriteLine("u. Use previous result");
+                Console.WriteLine("d. Delete history");
+                Console.WriteLine("Enter any other key to do another calculation.");
+                result = Console.ReadLine();
+            }
             if (result == "u")
             {
                 Console.WriteLine("Type the number of the result you would like to use: ");
                 result = Console.ReadLine();
-                num1 = Convert.ToDouble(results[(Convert.ToInt32(result) - 1)]);
+                if (int.TryParse(result, out _) && Convert.ToDouble(result) > 0)
+                    num1 = Convert.ToDouble(results[(Convert.ToInt32(result) - 1)]);
+                else
+                {
+                    Console.WriteLine("Invalid number");
+                    Console.ReadLine();
+                }
             }
             else if (result == "d")
             {
@@ -112,7 +127,7 @@ namespace CalculatorLibrary
             }
             return num1;
         }
-        
+
         public string Operator(string op)
         {
             switch (op)
